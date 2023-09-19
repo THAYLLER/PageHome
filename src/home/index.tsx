@@ -21,7 +21,7 @@ import {
   CardStoreInfoTextBold,
   CardStoreInfoTextBoldOrange,
   CardBanner,
-  ImageBanner
+  ImageBanner,
 } from "./style";
 
 import { MaterialIcons, Feather, AntDesign } from '@expo/vector-icons';
@@ -171,7 +171,7 @@ export default function Home() {
   const [firstHalf, secondHalf] = divideArray(mockData.itens);
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
+    <ScrollView showsVerticalScrollIndicator={false} >
       <Container>
         <Header>
           <Image source={require('../assets/imgs/header.png')} resizeMode="cover" />

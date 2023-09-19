@@ -39,6 +39,7 @@ export const Card = styled.View`
   background-color: #FFFDF4;
   border-radius: 20px;
   padding: 20px;
+  margin-top: -30px;
 `;
 
 export const CardLogo = styled.Image`
