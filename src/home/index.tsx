@@ -1,6 +1,6 @@
 
-import React from "react";
-import { View, FlatList,ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, FlatList,ScrollView, Dimensions } from "react-native";
 
 import { 
   ButtonContainer, 
@@ -109,10 +109,67 @@ const mockData = {
       price: 7.99,
       previousPrice: 10.00,
     },
+    {
+      id: '7',
+      image: require('../assets/imgs/product_img_1.png'),
+      name: 'Cerveja Skol 600ml Retornável',
+      warningMessage: 'Produto para maiores de 18 anos.',
+      price: 7.99,
+      previousPrice: 10.00,
+    },
+    {
+      id: '8',
+      image: require('../assets/imgs/product_img_1.png'),
+      name: 'Cerveja Skol 600ml Retornável',
+      warningMessage: 'Produto para maiores de 18 anos.',
+      price: 7.99,
+      previousPrice: 10.00,
+    },
+    {
+      id: '9',
+      image: require('../assets/imgs/product_img_1.png'),
+      name: 'Cerveja Skol 600ml Retornável',
+      warningMessage: 'Produto para maiores de 18 anos.',
+      price: 7.99,
+      previousPrice: 10.00,
+    },
+    {
+      id: '10',
+      image: require('../assets/imgs/product_img_1.png'),
+      name: 'Cerveja Skol 600ml Retornável',
+      warningMessage: 'Produto para maiores de 18 anos.',
+      price: 7.99,
+      previousPrice: 10.00,
+    },
+    {
+      id: '11',
+      image: require('../assets/imgs/product_img_1.png'),
+      name: 'Cerveja Skol 600ml Retornável',
+      warningMessage: 'Produto para maiores de 18 anos.',
+      price: 7.99,
+      previousPrice: 10.00,
+    },
+    {
+      id: '12',
+      image: require('../assets/imgs/product_img_1.png'),
+      name: 'Cerveja Skol 600ml Retornável',
+      warningMessage: 'Produto para maiores de 18 anos.',
+      price: 7.99,
+      previousPrice: 10.00,
+    },
   ]
 };
 
+function divideArray<T>(array: T[]): [T[], T[]] {
+  const middleIndex = Math.ceil(array.length / 2);
+  const firstHalf = array.slice(0, middleIndex);
+  const secondHalf = array.slice(middleIndex);
+  return [firstHalf, secondHalf];
+}
+
 export default function Home() {
+  const [firstHalf, secondHalf] = divideArray(mockData.itens);
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Container>
@@ -210,9 +267,16 @@ export default function Home() {
             </CardStoreInfoTextBoldOrange>
           </CardRow>
           <FlatList
-            numColumns={4}
+            horizontal={true}
             showsHorizontalScrollIndicator={false}
-            data={mockData.itens}
+            data={firstHalf}
+            renderItem={({ item }) => <Item item={item} />}
+            keyExtractor={(item) => item.id}
+          />
+          <FlatList
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            data={secondHalf}
             renderItem={({ item }) => <Item item={item} />}
             keyExtractor={(item) => item.id}
           />
