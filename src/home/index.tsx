@@ -210,7 +210,7 @@ export default function Home() {
             </CardStoreInfoTextBoldOrange>
           </CardRow>
           <FlatList
-            horizontal={true}
+            numColumns={4}
             showsHorizontalScrollIndicator={false}
             data={mockData.itens}
             renderItem={({ item }) => <Item item={item} />}

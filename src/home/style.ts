@@ -37,8 +37,7 @@ export const Card = styled.View`
   width: 100%; 
   height: 100%; 
   background-color: #FFFDF4;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-radius: 20px;
   padding: 20px;
 `;
 
